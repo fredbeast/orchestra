@@ -8,27 +8,116 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+h2 {
+  font-weight:700;
+  font-size: 66px;
+  @media #{$mobile-md} {
+    font-size: 34px;
+  }
 }
-.youtube-wrapper {
+h3 {
+  font-weight:500;
+  font-size: 50px;
+  @media #{$mobile-md} {
+    font-size: 22px;
+  }
+}
+
+.navbar {
+  background-color: $white;
+  z-index: 999;
+  /*
+  -webkit-box-shadow: 0 0 6px  #c9c9c9;
+  -moz-box-shadow: 0 0 6px #c9c9c9;
+  box-shadow: 0 0 6px  #c9c9c9;
+  */
+}
+.navbar-brand {
+  font-weight: 900;
+}
+
+.o-yt-wrapper {
+  margin-top: 50px;
+  margin-bottom: 100px;
   border-radius: 150px;
   position: relative;
   overflow: hidden;
-  z-index: 1;
   height: 300px;
   width: 300px;
+  z-index: 2;
 }
 
-.youtube-middle {
+.o-yt-middle {
   width: 140px;
   height: 140px;
   position: absolute;
   top: 80px;
   left: 80px;
-  z-index:999;
+  z-index:998;
   background: white;
   border-radius: 70px;
-  box-shadow: 0 0 5px #555;
+  -webkit-box-shadow: 0 0 41px 0 #0000002e;
+  -moz-box-shadow: 0 0 41px 0 #0000002e;
+  box-shadow: 0 0 41px 0 #0000002e;
+  &:hover {
+    opacity:0;
+    transition: opacity .5s ease-out;
+    -moz-transition: opacity .5s ease-out;
+    -webkit-transition: opacity .5s ease-out;
+    -o-transition: opacity .5s ease-out;
+    cursor: pointer;
+  }
+}
+
+.o-wall {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index:998;
+}
+
+
+.o-paint {
+  background-image:url("/img/o-paint.png");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size: 1000px 400px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  overflow: hidden;
+}
+
+.o-yt-line {
+  background: #000;
+  width:300px;
+  height:10px;
+  margin-top: -80px;
+}
+
+body {
+  width: 100%;
+}
+
+.container-fluid{
+  overflow-x:hidden;
+}
+
+.bg-black {
+  background-color: $black;
+}
+
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span
+{
+  color: $blue;
+}
+
+.btn-offerings {
+  border-radius: 100px;
+  font-weight:600;
+  font-size: 1.4em;
+  border-width: 4px;
 }

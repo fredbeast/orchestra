@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="We make websites."/>
     <meta name="author" content="Fred Parry"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,600,800,900" rel="stylesheet" type="text/css">
 
     <title>Orchestra Design</title>
 
@@ -17,7 +18,8 @@
 <body>
 @include('includes.header')
 @yield('content')
-@include('includes.footer')
+
+{{-- include('includes.footer') --}}
 
 <!-- Main JS -->
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
