@@ -1,22 +1,20 @@
-
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
 h2 {
-  font-weight:700;
-  font-size: 66px;
+  font-weight: 700;
+  font-size: 4.5em;
   @media #{$mobile-md} {
     font-size: 34px;
   }
 }
+
 h3 {
-  font-weight:500;
+  font-weight: 500;
   font-size: 50px;
   @media #{$mobile-md} {
     font-size: 22px;
@@ -32,11 +30,22 @@ h3 {
   box-shadow: 0 0 6px  #c9c9c9;
   */
 }
+
 .navbar-brand {
   font-weight: 900;
 }
 
-.o-yt-wrapper {
+#o-paint {
+  background-image: url("/img/o-paint.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1000px 400px;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  overflow: hidden;
+}
+
+#o-yt-wrapper {
   margin-top: 50px;
   margin-bottom: 100px;
   border-radius: 150px;
@@ -47,50 +56,31 @@ h3 {
   z-index: 2;
 }
 
-.o-yt-middle {
+#o-yt-middle {
   width: 140px;
   height: 140px;
   position: absolute;
   top: 80px;
   left: 80px;
-  z-index:998;
+  z-index: 998;
   background: white;
   border-radius: 70px;
   -webkit-box-shadow: 0 0 41px 0 #0000002e;
   -moz-box-shadow: 0 0 41px 0 #0000002e;
   box-shadow: 0 0 41px 0 #0000002e;
-  &:hover {
-    opacity:0;
-    transition: opacity .5s ease-out;
-    -moz-transition: opacity .5s ease-out;
-    -webkit-transition: opacity .5s ease-out;
-    -o-transition: opacity .5s ease-out;
-    cursor: pointer;
-  }
 }
 
-.o-wall {
+#o-yt-wall {
   position: absolute;
   height: 100%;
   width: 100%;
-  z-index:998;
+  z-index: 998;
 }
 
-
-.o-paint {
-  background-image:url("/img/o-paint.png");
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size: 1000px 400px;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  overflow: hidden;
-}
-
-.o-yt-line {
+#o-yt-line {
   background: #000;
-  width:300px;
-  height:10px;
+  width: 300px;
+  height: 10px;
   margin-top: -80px;
 }
 
@@ -98,8 +88,10 @@ body {
   width: 100%;
 }
 
-.container-fluid{
-  overflow-x:hidden;
+.home-block {
+  overflow: hidden;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .bg-black {
@@ -110,19 +102,26 @@ h1 span,
 h2 span,
 h3 span,
 h4 span,
-h5 span
-{
+h5 span {
   color: $blue;
 }
 
 .btn-offerings {
-  border-radius: 100px;
-  font-weight:600;
-  font-size: 1.4em;
-  border-width: 4px;
+  border-radius: 5px;
+  font-weight: 600;
+  border-width: 2px;
 }
 
-#o-ring {
+@for $i from 1 through length($color-offerings) {
+  .btn-offerings:nth-child(#{length($color-offerings)}n+#{$i}) {
+    &:hover {
+      background: nth($color-offerings, $i);
+      border-color: nth($color-offerings, $i);
+    }
+  }
+}
+
+#o-yt-ring {
   background-color: #000000;
   top: 0;
   left: 0;
@@ -132,5 +131,75 @@ h5 span
 }
 
 .o-yt-controls {
-  cursor:pointer;
+  cursor: pointer;
+  opacity: 0.4;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.work-img-top {
+  opacity: 1;
+  transition: opacity 1s;
+  &:hover {
+    opacity: 0;
+  }
+}
+
+.card-work {
+  cursor: pointer;
+  border-width: 0;
+}
+
+.btn-card-work {
+  background-color: #ffffff;
+  text-align: left;
+  position: absolute;
+  z-index: 2;
+  width: calc(100% - 40px);
+  margin: 20px;
+  font-weight: 700;
+  font-size: 30px;
+  border: solid 5px;
+}
+.card-work:hover .btn-card-work {
+  background-color: transparent !important;
+  color: white;
+  border-color: white;
+}
+
+.card-work:hover .work-img-top {
+  opacity: 0;
+}
+
+.card-blog-lg {
+  border:0;
+  max-height: 350px;
+  overflow: hidden;
+}
+.card-blog-lg-img {
+  border-top-right-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
+  object-fit: none; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  width: 100%;
+  height: 100%;
+}
+
+.card-blog .card-text {
+  font-size: 1.2em;
+}
+
+.btn-card-blog-rm{
+  font-weight: 700;
+  font-size: 25px;
+  border: solid 5px;
+}
+
+.card-blog-sm {
+  border:0;
+}
+
+.card-blog-sm .card-title {
+  font-size: 2.5em;
 }
