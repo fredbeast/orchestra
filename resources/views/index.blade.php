@@ -4,22 +4,24 @@
     <div class="container-fluid py-3">
 
         <div class="row">
-            <div class='col-12 o-paint'>
+            <div class='col-12 o-paint text-center'>
                 <div class="o-yt-wrapper mx-auto d-block">
                     <div class="o-wall"></div>
+                    <div id="o-ring"></div>
                     <div class="o-yt-middle"></div>
-                    <iframe id="oYtIframe" class="d-none d-sm-block " style="margin-left: -100px; margin-top: -90px"
+                    <iframe id="oYtIframe" class="d-block d-sm-block " style="margin-left: -100px; margin-top: -90px"
                             width="515"
                             height="500"
-                            src="https://www.youtube-nocookie.com/embed/UnJDbDOLBJc?enablejsapi=1&rel=0&controls=0&autoplay=1&loop=1​&playlist=UnJDbDOLBJc"
+                            src="https://www.youtube-nocookie.com/embed/UnJDbDOLBJc?enablejsapi=1&rel=0&controls=0&loop=1​&playlist=UnJDbDOLBJc"
                             frameborder="0"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                 </div>
                 <div class="o-yt-line mx-auto"></div>
+                <i id="play-button" class="fa fa-play o-yt-controls"></i>
+                <i id="pause-button" class="fa fa-pause o-yt-controls"></i>
+                <i id="mute-button" class="fa fa-volume-mute o-yt-controls"></i>
 
-                <a class="btn btn-primary" id="play-button">Play</a>
-                <a class="btn btn-primary" id="pause-button">Pause</a>
             </div>
         </div>
     </div>
@@ -48,23 +50,48 @@
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
         var player;
-
+        function fadeIn(element) {
+            var op = 0.1;  // initial opacity
+            var timer = setInterval(function () {
+                if (op >= 1){
+                    clearInterval(timer);
+                }
+                element.style.opacity = op;
+                op += 0.1;
+            }, 10);
+        }
+        function fadeOut(element) {
+            var op = 1;  // initial opacity
+            var timer = setInterval(function () {
+                if (op <= 0.1){
+                    clearInterval(timer);
+                }
+                element.style.opacity = op;
+                op -= 0.1;
+            }, 50);
+        }
 
         function onPlayerReady(event) {
             // bind events
             var playButton = document.getElementById("play-button");
             playButton.addEventListener("click", function () {
-                console.log('hey');
+                fadeOut(document.getElementById("o-ring"));
                 player.playVideo();
             });
 
             var pauseButton = document.getElementById("pause-button");
             pauseButton.addEventListener("click", function () {
                 player.pauseVideo();
+                fadeIn(document.getElementById("o-ring"));
             });
-            var pauseButton = document.getElementById("pause-button");
-            pauseButton.addEventListener("click", function () {
-                player.pauseVideo();
+            var muteButton = document.getElementById("mute-button");
+            muteButton.addEventListener("click", function () {
+                if (player.isMuted()) {
+                    player.unMute();
+                }
+                else {
+                    player.mute();
+                }
             });
         }
         function onYouTubePlayerAPIReady() {
