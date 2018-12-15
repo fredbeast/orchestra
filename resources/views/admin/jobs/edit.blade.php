@@ -7,7 +7,7 @@
                 <a class="btn btn-outline-dark my-5 mx-3" href="../">BACK</a>
 
                 <h1>Edit Job</h1>
-                <form method="POST" action="/admin/posts/{{ $job->id }}" enctype="multipart/form-data">
+                <form method="POST" action="/admin/jobs/{{ $job->id }}" enctype="multipart/form-data">
 
                     {{ csrf_field() }}
                     {{ method_field('PATCH') }}
@@ -41,7 +41,7 @@
                         <button type="submit">Save</button>
                     </div>
                 </form>
-                <form method="POST" action="/admin/posts/{{$job -> id}}">
+                <form method="POST" action="/admin/jobs/{{$job -> id}}">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
 
