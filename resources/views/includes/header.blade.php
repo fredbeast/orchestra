@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-">
 
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
         <img src="{{ asset('img/o-logo.svg') }}" width="30" height="30" class="d-inline-block align-top" alt="Logo">
         orchestra
     </a>
@@ -15,14 +15,19 @@
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/">About <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/about">About</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/">Work <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/jobs">Work</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/">Contact <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/blog">Blog</a>
             </li>
+            <!--
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Contact</a>
+            </li>
+            -->
         </ul>
     </div>
 </nav>

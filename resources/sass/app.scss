@@ -90,8 +90,8 @@ body {
 
 .home-block {
   overflow: hidden;
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .bg-black {
@@ -198,6 +198,10 @@ h5 span {
 
 .card-blog-sm {
   border:0;
+}
+
+.card-blog a {
+  color: inherit
 }
 
 .card-blog-sm .card-title {

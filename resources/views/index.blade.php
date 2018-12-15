@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container-fluid pt-3">
+    <div class="container-fluid pt-md-3">
         <div class="row">
             <div class='col-12 text-center' id="o-paint">
                 <div id="o-yt-wrapper" class="mx-auto d-block">
@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-    <div class="container bg-black home-block">
+    <div class="container bg-black home-block rounded">
         <div class="row">
             <div class="col-12 offset-md-2 col-md-6 text-white">
                 <div class="my-5 py-5">
@@ -48,33 +48,92 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container my-md-5">
         <div class="row">
             <div class="col-12">
-                <h2 class="mt-5 pt-5">work</h2>
+                <h2 class="mt-sm-3 mt-md-5">work</h2>
                 <p>have a browse...</p>
             </div>
         </div>
-        @include('includes.work')
-    </div>
-    <div class="container bg-black home-block">
-        <div class="row">
-            <div class="col-12">
-                <div class="my-5 py-5">
-                    <img src="{{ asset('img/sign.png') }}" class="d-block m-auto">
+        @foreach ($jobs as $job)
+            <div onclick="location.href='./jobs/{{$job->id}}';"
+                 class="col-8 offset-2 col-sm-5 offset-sm-1 col-md-3 offset-md-0 my-4 my-md-0">
+                <div class="card rounded shadow card-work" style="width: 100%">
+                    <img class="card-img-top rounded work-img" src="{{$job->thumb_col}}" alt="Card image cap">
+                    <img class="card-img-top rounded work-img-top" style="position: absolute; top:0; left:0"
+                         src="{{ $job->thumb_pen }} " alt="Card image cap">
+                    <a class="btn btn-outline-dark rounded btn-card-work" href="#" role="button">{{$job->title}}</a>
                 </div>
+            </div>
+        @endforeach
+    </div>
+    <div class="container-fluid px-0 h-100 home-block ">
+        <div class="row align-items-center">
+            <div class="col-12 col-sm-5 col-md-4 offset-lg-2 bg-black text-white border-light rounded"
+                 style="margin-right: -150px; z-index: 4;">
+                <div class="my-5 p-5">
+                    <h2>who are we?</h2>
+                    <p>a bunch of kids really </p>
+                    <a href="/about" class="btn btn-outline-light">meet the team</a>
+                </div>
+            </div>
+            <div class="col-12 col-sm-7 col-md-5 d-none d-sm-block">
+                <img src="{{ asset('img/about-finn.jpg') }}" class="rounded shadow-lg my-5 d-block w-100 mr-auto">
             </div>
         </div>
     </div>
     <div class="container my-5 pb-5">
+
         <div class="row">
-            <div class="col-12">
-                <h2>blog</h2>
-                <p>have a read...</p>
-            </div>
+            @foreach ($posts as $post)
+                @if ($loop->first)
+                    <div class="col-12 col-md-8">
+
+                        <div class="card rounded card-blog card-blog-lg shadow-lg">
+                            <div class="row ">
+                                <div class="col-12 col-sm-8 col-md-6">
+                                    <div class="card-block p-3">
+                                        <p class="card-subtitle">{{ $post->subtitle }}</p>
+                                        <a href="blog/{{ $post-> id }}"><h2 class="card-title">{{ $post->title }}</h2>
+                                        </a>
+                                        <p class="card-text">{{ $post->content }}</p>
+
+                                    </div>
+                                </div>
+                                <div class="d-none d-sm-block col-sm-4 col-md-6">
+                                    <img src="{{ $post -> image }}" style="min-height:400px;"
+                                         class="w-100 card-blog-lg-img d-none d-md-block">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    @if($loop->iteration == 2)
+                        <div class="col-12 col-md-4 ">
+                            @endif
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card rounded card-blog card-blog-sm shadow-lg mt-2 bg-black text-white">
+                                        <div class="row ">
+                                            <div class="col-12">
+                                                <div class="card-block p-3">
+                                                    <p class="card-subtitle">{{ $post->subtitle }}</p>
+                                                    <a href="blog/{{ $post-> id }}"><h2
+                                                                class="card-title">{{ $post->title }}</h2></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @if($loop->last)
+                        </div>
+                    @endif
+                @endif
+            @endforeach
         </div>
-        @include('includes.blog')
     </div>
+
 
     <script>
         var tag = document.createElement('script');
