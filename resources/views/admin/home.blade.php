@@ -16,7 +16,7 @@
                         <img class="card-img-top rounded work-img" src="{{$job->thumb_col}}" alt="Card image cap">
                         <img class="card-img-top rounded work-img-top" style="position: absolute; top:0; left:0"
                              src="{{ $job->thumb_pen }} " alt="Card image cap">
-                        <a class="btn btn-outline-dark rounded btn-card-work" href="#" role="button">{{$job->title}}</a>
+                        <a class="btn btn-outline-dark rounded btn-card-work" href="#" role="button">{{$job->tag     }}</a>
                     </div>
                 </div>
             @endforeach

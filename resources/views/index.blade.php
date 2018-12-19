@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+
     <div class="container-fluid" style="position: relative; margin-top: -50px; height:100vh">
         <div class="row h-100">
             <div class='col-12 text-center my-auto' id="o-paint">
