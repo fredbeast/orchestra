@@ -1,9 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container-fluid pt-md-3">
-        <div class="row">
-            <div class='col-12 text-center' id="o-paint">
+    <div class="container-fluid" style="position: relative; margin-top: -50px; height:100vh">
+        <div class="row h-100">
+            <div class='col-12 text-center my-auto' id="o-paint">
                 <div id="o-yt-wrapper" class="mx-auto d-block">
                     <div id="o-yt-wall"></div>
                     <div id="o-yt-ring"></div>
@@ -21,52 +21,72 @@
                 <i id="pause-button" class="fa fa-pause o-yt-controls m-1"></i>
                 <i id="mute-button" class="fa fa-volume-mute o-yt-controls m-1"></i>
 
+
             </div>
+            <div id="scrollDown" class="text-center scroll-wrapper ">
+                <a href="#scrollDown">
+                    <p>explore</p>
+                    <i class="fa fa-arrow-down bounce"></i>
+                </a>
+
+            </div>
+
         </div>
+
     </div>
+
     <div class="container bg-black home-block rounded">
         <div class="row">
             <div class="col-12 offset-md-2 col-md-6 text-white">
                 <div class="my-5 py-5">
                     <h2>welcome to orchestra. </h2>
                     <p class="mt-3">things we do...</p>
-                    <a class="btn btn-outline-light btn-offerings mx-1 my-2" href="#" role="button">web development</a>
-                    <a class="btn btn-outline-light btn-offerings mx-1 my-2" href="#" role="button">web design</a>
-                    <a class="btn btn-outline-light btn-offerings mx-1 my-2" href="#" role="button">graphic design</a>
-                    <a class="btn btn-outline-light btn-offerings mx-1 my-2" href="#" role="button">branding</a>
-                    <a class="btn btn-outline-light btn-offerings mx-1 my-2" href="#" role="button">ground / aerial
+                    <a class="btn btn-outline-light btn-offerings mx-1 my-2" href="#work" role="button">web
+                        development</a>
+                    <a class="btn btn-outline-light btn-offerings mx-1 my-2" href="#work" role="button">web design</a>
+                    <a class="btn btn-outline-light btn-offerings mx-1 my-2" href="#work" role="button">graphic
+                        design</a>
+                    <a class="btn btn-outline-light btn-offerings mx-1 my-2" href="#work" role="button">branding</a>
+                    <a class="btn btn-outline-light btn-offerings mx-1 my-2" href="#work" role="button">ground / aerial
                         photography</a>
                     <br>
                     <p class="mt-3">where to find us...</p>
-                    <a class="btn btn-outline-light btn-offerings mx-1 my-2" href="#" role="button">edinburgh</a>
-                    <a class="btn btn-outline-light btn-offerings mx-1 my-2" href="#" role="button">london</a>
-                    <a class="btn btn-outline-light btn-offerings mx-1 my-2" href="#" role="button">online</a>
+                    <a class="btn btn-outline-light btn-offerings mx-1 my-2" href="https://goo.gl/maps/YeAKvjrQpoG2"
+                       target="_blank" role="button">edinburgh</a>
+                    <a class="btn btn-outline-light btn-offerings mx-1 my-2"
+                       href="https://itsalmo.st/orchestras-london-hq-launch" target="_blank" role="button">london</a>
+                    <a class="btn btn-outline-light btn-offerings mx-1 my-2"
+                       href="https://www.facebook.com/orchestrastudios/" target="_blank" role="button">online</a>
                 </div>
             </div>
             <div class="col-12 col-md-4">
-                <img class="d-none d-md-block h-100" src="{{ asset('img/violin.jpg') }}">
+                <img class="d-none d-md-block h-100" src="{{ asset('img/violin.png') }}">
             </div>
         </div>
     </div>
-    <div class="container my-md-5">
+
+    <div class="container my-md-5" id="work">
         <div class="row">
             <div class="col-12">
                 <h2 class="mt-sm-3 mt-md-5">work</h2>
                 <p>have a browse...</p>
             </div>
         </div>
-        @foreach ($jobs as $job)
-            <div onclick="location.href='./jobs/{{$job->id}}';"
-                 class="col-8 offset-2 col-sm-5 offset-sm-1 col-md-3 offset-md-0 my-4 my-md-0">
-                <div class="card rounded shadow card-work" style="width: 100%">
-                    <img class="card-img-top rounded work-img" src="{{$job->thumb_col}}" alt="Card image cap">
-                    <img class="card-img-top rounded work-img-top" style="position: absolute; top:0; left:0"
-                         src="{{ $job->thumb_pen }} " alt="Card image cap">
-                    <a class="btn btn-outline-dark rounded btn-card-work" href="#" role="button">{{$job->title}}</a>
+        <div class="row">
+            @foreach ($jobs as $job)
+                <div onclick="location.href='./jobs/{{$job->id}}';"
+                     class="col-8 offset-2 col-sm-5 offset-sm-1 col-md-3 offset-md-0 my-4 my-md-0">
+                    <div class="card rounded shadow card-work" style="width: 100%">
+                        <img class="card-img-top rounded work-img" src="{{$job->thumb_col}}" alt="Card image cap">
+                        <img class="card-img-top rounded work-img-top" style="position: absolute; top:0; left:0"
+                             src="{{ $job->thumb_pen }} " alt="Card image cap">
+                        <a class="btn btn-outline-dark rounded btn-card-work" href="#" role="button">{{$job->tag}}</a>
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
+
     <div class="container-fluid px-0 h-100 home-block ">
         <div class="row align-items-center">
             <div class="col-12 col-sm-5 col-md-4 offset-lg-2 bg-black text-white border-light rounded"
@@ -83,7 +103,12 @@
         </div>
     </div>
     <div class="container my-5 pb-5">
-
+        <div class="row">
+            <div class="col-12">
+                <h2 class="mt-sm-3 mt-md-5">blog</h2>
+                <p>have a read...</p>
+            </div>
+        </div>
         <div class="row">
             @foreach ($posts as $post)
                 @if ($loop->first)
@@ -93,11 +118,11 @@
                             <div class="row ">
                                 <div class="col-12 col-sm-8 col-md-6">
                                     <div class="card-block p-3">
-                                        <p class="card-subtitle">{{ $post->subtitle }}</p>
+                                        <p class="card-subtitle"><b class="text-muted">LATEST POST</b></p>
                                         <a href="blog/{{ $post-> id }}"><h2 class="card-title">{{ $post->title }}</h2>
                                         </a>
                                         <p class="card-text">{{ $post->content }}</p>
-
+                                        <a class="btn btn-outline-dark btn-offerings" href="blog/{{ $post-> id }}">read post</a>
                                     </div>
                                 </div>
                                 <div class="d-none d-sm-block col-sm-4 col-md-6">
@@ -133,7 +158,6 @@
             @endforeach
         </div>
     </div>
-
 
     <script>
         var tag = document.createElement('script');
@@ -197,6 +221,9 @@
                 }
             });
         }
+
+
+
     </script>
 @endsection
 

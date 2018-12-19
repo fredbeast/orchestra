@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container my-5 py-5">
-        <div class="row my-5">
+    <div class="container my-sm-5">
+        <div class="row my-5 my-sm-5">
             <div class="col-12">
                 <h2 class="d-inline-block">work</h2>
-                <a class="float-right btn btn-success " href="./jobs">back</a>
+                <a class="float-right btn btn-success " href="./">back</a>
             </div>
         </div>
         <div class="row">
@@ -16,7 +16,7 @@
                         <img class="card-img-top rounded work-img" src="{{$job->thumb_col}}" alt="Card image cap">
                         <img class="card-img-top rounded work-img-top" style="position: absolute; top:0; left:0"
                              src="{{ $job->thumb_pen }} " alt="Card image cap">
-                        <a class="btn btn-outline-dark rounded btn-card-work" href="#" role="button">{{$job->title}}</a>
+                        <a class="btn btn-outline-dark rounded btn-card-work" href="#" role="button">{{ $job->tag }}</a>
                     </div>
                 </div>
             @endforeach

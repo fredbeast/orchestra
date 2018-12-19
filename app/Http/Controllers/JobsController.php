@@ -35,30 +35,36 @@ class JobsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $thumb_pen = $this->awsStore($request->file('thumbPen'));
-        $thumb_col = $this->awsStore($request->file('thumbCol'));
-        $img_lg = $this->awsStore($request->file('imgLg'));
+
+        if ($request->file('imgLg') && $request->file('thumbCol') && $request->file('thumbPen')) {
+            $img_lg = $this->awsStore($request->file('imgLg'));
+            $thumb_col = $this->awsStore($request->file('thumbCol'));
+            $thumb_pen = $this->awsStore($request->file('thumbPen'));
+        } else {
+            return redirect()->back()->with('message', 'Image upload failed, include all images');
+        }
+
         Job::create([
             'title' => request('title'),
-            'url' => request('subtitle'),
-            'types' => request('content'),
+            'url' => request('url'),
+            'types' => request('types'),
+            'tag' => request('tag'),
             'description' => request('description'),
             'thumb_pen' => $thumb_pen,
             'thumb_col' => $thumb_col,
             'img_lg' => $img_lg
         ]);
-
         return redirect('admin/jobs')->withSuccess('Image uploaded successfully');
     }
 
     private function awsStore($image)
     {
-        $url = 'http://s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com/' . env('AWS_BUCKET') . '/';
+        $url = 'https://s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com/' . env('AWS_BUCKET') . '/';
         $name = time() . $image->getClientOriginalName();
         $filePath = 'jobs/' . $name;
         $imageUrl = $url . 'jobs/' . $name;
@@ -69,10 +75,11 @@ class JobsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Job $job)
+    public
+    function show(Job $job)
     {
         return view('admin.jobs.show', compact('job'));
     }
@@ -80,10 +87,11 @@ class JobsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Job $job)
+    public
+    function edit(Job $job)
     {
         return view('admin.jobs.edit', compact('job'));
 
@@ -92,43 +100,84 @@ class JobsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Job $job)
+    public
+    function update(Job $job)
     {
-        $thumb_pen = $this->awsUpdate(request('thumbPen'));
-        $thumb_col = $this->awsUpdate(request('thumbCol'));
-        $img_lg = $this->awsUpdate(request('imgLg'));
-        $job->update(['thumb_pen' => $thumb_pen, 'thumb_col' => $thumb_col, '$img_lg' => $img_lg]);
-        $job->update(request(['title', 'types', 'url', 'content']));
-        return back()->withSuccess('Everything updated successfully!');
+        // Checking if any new image entered
+        if (!empty(request('thumbPen'))) {
+            $thumb_pen = $this->awsUpdate($job->thumb_pen, request('thumbPen'));
+            if (!empty($thumb_pen)) {
+                $job->update(['thumb_pen' => $thumb_pen]);
+            }
+        }
+        // Checking if any new image entered
+        if (!empty(request('thumbCol'))) {
+            $thumb_col = $this->awsUpdate($job->thumb_col, request('thumbCol'));
+            if (!empty($thumb_col)) {
+                $job->update(['thumb_col' => $thumb_col]);
+            }
+        }
+        // Checking if any new image entered
+        if (!empty(request('imgLg'))) {
+            $img_lg = $this->awsUpdate($job->img_lg, request('imgLg'));
+            if (!empty($img_lg)) {
+                $job->update(['img_lg' => $img_lg]);
+            }
+        }
+        // Update other content no matter what
+        $job->update(request(['title', 'types', 'url', 'content', 'tag']));
+        return back()->with('message','Everything updated successfully!');
     }
 
-    private function awsUpdate($image)
+    private function awsUpdate($old, $new)
     {
-        $url = 'https://s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com/' . env('AWS_BUCKET') . '/';
-        $name = time() . $image->getClientOriginalName();
-        $filePath = 'jobs/' . $name;
-        $imageUrl = $url . 'jobs/' . $name;
-        $oldImageUrl = Job::find(request('id'));
-        $oldImageS3Id = end($oldImageUrl);
-        Storage::disk('s3')->put($filePath, file_get_contents($image));
-        if (!empty($oldImageS3Id)) {
-            Storage::disk('s3')->delete('images/' . $oldImageS3Id);
+        // Only progress with both old and new images existing
+        if (!empty($old) && !empty($new)) {
+            $url = 'https://s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com/' . env('AWS_BUCKET') . '/';
+            $name = time() . $new->getClientOriginalName();
+            $filePath = 'jobs/' . $name;
+            $imageUrl = $url . 'jobs/' . $name;
+            $oldSplitUrl = explode('/', $old);
+            $oldImageS3Id = end($oldSplitUrl);
+            Storage::disk('s3')->put($filePath, file_get_contents($new));
+            Storage::disk('s3')->delete('jobs/' . $oldImageS3Id);
+            return $imageUrl;
+        } else {
+            return null;
         }
-        return $imageUrl;
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        $job = Job::find($id);
+        if (!empty($job->thumb_pen)) {
+            $this->awsDelete($job->thumb_pen);
+        }
+        if (!empty($job->thumb_col)) {
+            $this->awsDelete($job->thumb_col);
+        }
+        if (!empty($job->img_lg)) {
+            $this->awsDelete($job->img_lg);
+        }
+        $job->delete();
+        return redirect('admin/jobs')->with('message', 'Deleted!');
+    }
+
+    private function awsDelete($image)
+    {
+        $splitUrl = explode('/', $image);
+        $imageOriginal = end($splitUrl);
+        Storage::disk('s3')->delete('jobs/' . $imageOriginal);
     }
 }

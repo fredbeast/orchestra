@@ -21,6 +21,9 @@
                         <input type="text" name="url" placeholder="Job Url">
                     </div>
                     <div>
+                        <input type="text" name="tag" placeholder="Job Tag">
+                    </div>
+                    <div>
                         <textarea name="description" placeholder="Job Description"></textarea>
                     </div>
 
@@ -40,7 +43,11 @@
                         <button class="btn btn-success btn-outline-success my-5" type="submit">Create Job</button>
                     </div>
                 </form>
-
+                @if(session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>

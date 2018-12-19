@@ -20,7 +20,10 @@
                         <input type="text" name="types" value="{{ $job->types }}" placeholder="Job Type">
                     </div>
                     <div>
-                        <input type="text" name="url" value="{{ $job->url }}" placeholder="Job subtitle">
+                        <input type="text" name="url" value="{{ $job->url }}" placeholder="Job URL">
+                    </div>
+                    <div>
+                        <input type="text" name="tag" value="{{ $job->tag }}" placeholder="Job Tag">
                     </div>
                     <div>
                         <textarea name="description" placeholder="Job Description">{{ $job->description  }}</textarea>
@@ -59,8 +62,8 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <p>Current Images</p>
-                <img src="{{$job -> thumb_pen}}" alt="Thumbnail Pen" class="w-25">
                 <img src="{{$job -> thumb_col}}" alt="Thumbnail Color" class="w-25">
+                <img src="{{$job -> thumb_pen}}" alt="Thumbnail Pen" class="w-25">
                 <img src="{{$job -> img_lg}}" alt="Large Image" class="w-25">
             </div>
         </div>

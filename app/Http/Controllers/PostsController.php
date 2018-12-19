@@ -39,14 +39,16 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $url = 'http://s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com/' . env('AWS_BUCKET') . '/';
-        $imageUrl = null;
+        $url = 'https://s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com/' . env('AWS_BUCKET') . '/';
         if ($request->file('image')) {
             $file = $request->file('image');
             $name = time() . $file->getClientOriginalName();
             $filePath = 'images/' . $name;
             $imageUrl = $url . 'images/' . $name;
             Storage::disk('s3')->put($filePath, file_get_contents($file));
+        }
+        else {
+            return redirect()->back()->with('message', 'Image upload failed');
         }
 
         Post::create([
@@ -57,7 +59,7 @@ class PostsController extends Controller
             'image' => $imageUrl,
         ]);
 
-        return redirect('admin/posts')->withSuccess('Image uploaded successfully');
+        return redirect('admin/posts')->with('message', 'Post uploaded successfully');
     }
 
     /**
@@ -93,17 +95,27 @@ class PostsController extends Controller
      */
     public function update(Post $post)
     {
-        $url = 'https://s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com/' . env('AWS_BUCKET') . '/';
-        $file = request('image');
-        if(!empty($file)) {
-            $name = time() . $file->getClientOriginalName();
-            $filePath = 'images/' . $name;
-            $imageUrl = $url . 'images/' . $name;
-
+        $old = Post::find(request('id'));
+        if(!empty(request('image'))) {
+            $new = request('image');
+            $newUrl = $this->awsUpdate($old, $new);
+            $post->update(['image' => $newUrl]);
         }
-
         $post->update(request(['title', 'subtitle', 'description', 'content']));
         return back()->withSuccess('Everything updated successfully!');
+        }
+
+    private function awsUpdate($old, $new)
+    {
+        $url = 'https://s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com/' . env('AWS_BUCKET') . '/';
+        $name = time() . $new->getClientOriginalName();
+        $filePath = 'images/' . $name;
+        $imageUrl = $url . 'images/' . $name;
+        $oldImageSplit = explode('/', $old->image);
+        $oldImageS3Id = end($oldImageSplit);
+        Storage::disk('s3')->put($filePath, file_get_contents($new));
+        Storage::disk('s3')->delete('images/' . $oldImageS3Id);
+        return $imageUrl;
     }
 
     /**
@@ -119,6 +131,6 @@ class PostsController extends Controller
         $s3Id = end($imageUrl);
         Storage::disk('s3')->delete('images/' . $s3Id);
         $post->delete();
-        return redirect('admin/posts')->withSuccess('Everything updated successfully!');
+        return redirect('admin/posts')->with('message', 'Post deleted successfully!');
     }
 }

@@ -22,7 +22,7 @@
 <body>
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-info">
 
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/admin">
         <img src="{{ asset('img/o-logo.svg') }}" width="30" height="30" class="d-inline-block align-top" alt="Logo">
         orchestra : admin
     </a>

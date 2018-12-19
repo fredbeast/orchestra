@@ -19,12 +19,20 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
-<body>
+<body style="padding-top:50px">
 @include('includes.header')
 @yield('content')
-{{-- include('includes.footer') --}}
+@include('includes.footer')
 
 <!-- Main JS -->
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/smooth-scroll.polyfills.min.js') }}"></script>
+<script>
+    var scroll = new SmoothScroll('a[href*="#"]');
+
+</script>
+<script>
+
+</script>
 </body>
 </html>
