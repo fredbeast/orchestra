@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             @foreach ($jobs as $job)
-                <div onclick="location.href='./jobs/{{$job->id}}';"
+                <div onclick="location.href='{{ action('JobsController@show', $job -> id)  }}';"
                      class="col-8 offset-2 col-sm-5 offset-sm-1 col-md-3 offset-md-0 my-4 my-md-0">
                     <div class="card rounded shadow card-work" style="width: 100%">
                         <img class="card-img-top rounded work-img" src="{{$job->thumb_col}}" alt="Card image cap">
@@ -35,7 +35,7 @@
                             <div class="col-12">
                                 <div class="card-block p-3">
                                     <p class="card-subtitle">{{ $post->subtitle }}</p>
-                                    <a href="posts/{{ $post-> id }}"><h2
+                                    <a href="{{ action('PostsController@show', $post -> id)  }}"><h2
                                                 class="card-title">{{ $post->title }}</h2></a>
                                 </div>
                             </div>

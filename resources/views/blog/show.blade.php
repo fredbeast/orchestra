@@ -10,7 +10,7 @@
             <div class="col-12 col-md-8">
                 <div class="row">
                     <div class="col-12">
-                        <a class="btn btn-success float-right" href="./">BACK</a>
+                        <a class="float-right btn btn-success " href="{{ action('BlogController@index') }}">back</a>
                     </div>
                 </div>
                 <div class="row">

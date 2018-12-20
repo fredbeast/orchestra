@@ -1,7 +1,7 @@
 @extends('layouts.admin');
 @section('content')
     <div class="container my-5">
-        <a class="btn btn-outline-dark my-5 mx-3" href="./">BACK</a>
+        <a class="btn btn-outline-dark my-5 mx-3" href="{{ action('PostsController@index') }}">BACK</a>
 
         <h2 class="mb-5">Create Post</h2>
         <form method="POST" action="/admin/posts" enctype="multipart/form-data">

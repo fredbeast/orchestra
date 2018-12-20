@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="container my-5">
-        <a class="btn btn-outline-dark my-5 mx-3" href="../">BACK</a>
+        <a class="btn btn-outline-dark my-5 mx-3" href="{{ action('PostsController@index') }}">BACK</a>
 
     <h1>Edit Post</h1>
     <form method="POST" action="/admin/posts/{{ $post->id }}" enctype="multipart/form-data">

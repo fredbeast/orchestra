@@ -4,7 +4,7 @@
     <div class="container my-5">
         <div class="row">
             <div class="col-md-8 offset-md-2">
-                <a class="btn btn-outline-dark my-5 mx-3" href="../">BACK</a>
+                <a class="btn btn-outline-dark my-5 mx-3" href="{{ action('JobsController@index') }}">BACK</a>
 
                 <h1>Edit Job</h1>
                 <form method="POST" action="/admin/jobs/{{ $job->id }}" enctype="multipart/form-data">
