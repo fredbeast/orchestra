@@ -26,7 +26,7 @@
                         <input type="text" name="tag" value="{{ $job->tag }}" placeholder="Job Tag">
                     </div>
                     <div>
-                        <textarea name="description" placeholder="Job Description">{{ $job->description  }}</textarea>
+                        <textarea class="tiny-editor" name="description" placeholder="Job Description">{{ $job->description  }}</textarea>
                     </div>
                     <div>
                         New Thumbnail (Colour)

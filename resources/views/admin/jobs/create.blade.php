@@ -24,7 +24,7 @@
                         <input type="text" name="tag" placeholder="Job Tag">
                     </div>
                     <div>
-                        <textarea name="description" placeholder="Job Description"></textarea>
+                        <textarea class="tiny-editor" name="description" placeholder="Job Description"></textarea>
                     </div>
 
                     <div>

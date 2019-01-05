@@ -1,4 +1,4 @@
-@extends('layouts.master');
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
@@ -11,7 +11,7 @@
         <p>SUBTITLE</p>
         <h5>{{ $post->subtitle }}</h5>
         <p>CONTENT</p>
-        <p>{{ $post->content }}</p>
+        {!! $post->content  !!}
         </div>
     </div>
 @endsection

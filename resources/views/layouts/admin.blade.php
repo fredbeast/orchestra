@@ -10,10 +10,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,800,900" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-    <title>Orchestra Design</title>
+    <title>Admin | Orchestra</title>
 
     <!-- Main CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -61,5 +60,14 @@
 
 <!-- Main JS -->
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+
+<script src="{{asset('js/tinymce.min.js')}}"></script>
+<script>
+    tinymce.init({
+        selector: '.tiny-editor',
+        block_formats: 'Paragraph=p;Header 1=h3;Header 2=h4;Header 3=h5; Quote=h6',
+        height : 500,
+    });
+</script>
 </body>
 </html>

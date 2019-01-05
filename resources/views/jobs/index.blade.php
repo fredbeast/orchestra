@@ -1,11 +1,23 @@
 @extends('layouts.master')
 
+@section('page_info')
+    <title>Work | Orchestra</title>
+    <meta name="description" content="Award-winning design since 2018."/>
+@endsection
+@section('facebook_meta')
+    <meta property="og:title" content="Orchestra's Work">
+    <meta property="og:description" content="Websites, logos and products designed by the big O.">
+    <meta property="og:image" content="https://s3.eu-west-2.amazonaws.com/orchestra-portfolio/protected/orchestra.jpg">
+    <meta property="og:url" content="http://orchestradesign.co/jobs">
+@endsection
+
 @section('content')
     <div class="container my-sm-5">
         <div class="row my-5 my-sm-5">
             <div class="col-12">
+                <p><a href="/">Home</a> > Jobs</p>
                 <h2 class="d-inline-block">work</h2>
-                <a class="float-right btn btn-success " href="{{ url()->previous()}}">back</a>
+                <hr>
             </div>
         </div>
         <div class="row">

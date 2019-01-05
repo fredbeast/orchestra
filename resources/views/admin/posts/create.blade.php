@@ -18,7 +18,7 @@
                 <textarea name="description" placeholder="Post Description"></textarea>
             </div>
             <div>
-                <textarea name="content" placeholder="Post Content"></textarea>
+                <textarea class="tiny-editor" name="content" placeholder="Post Content"></textarea>
             </div>
             <div>
                 <input type="file" name="image">

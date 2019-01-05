@@ -1,8 +1,19 @@
 @extends('layouts.master')
 
+@section('page_info')
+    <title>Home | Orchestra</title>
+    <meta name="description" content="Award-winning design since 2018."/>
+@endsection
+@section('facebook_meta')
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://s3.eu-west-2.amazonaws.com/orchestra-portfolio/protected/orchestra.jpg">
+    <meta property="og:url" content="http://orchestradesign.co/">
+@endsection
+
 @section('content')
 
-    <div class="container-fluid" style="position: relative; margin-top: -50px; height:100vh">
+    <div class="container-fluid" style="position: relative; margin-top: -50px; height:85vh">
         <div class="row h-100">
             <div class='col-12 text-center my-auto' id="o-paint">
                 <div id="o-yt-wrapper" class="mx-auto d-block">
@@ -110,7 +121,7 @@
                 <p>have a read...</p>
             </div>
         </div>
-        <div class="row">
+        <div class="row my-5">
             @foreach ($posts as $post)
                 @if ($loop->first)
                     <div class="col-12 col-md-8">
@@ -122,8 +133,8 @@
                                         <p class="card-subtitle"><b class="text-muted">LATEST POST</b></p>
                                         <a href="blog/{{ $post-> id }}"><h2 class="card-title">{{ $post->title }}</h2>
                                         </a>
-                                        <p class="card-text">{{ $post->content }}</p>
-                                        <a class="btn btn-outline-dark btn-offerings" href="blog/{{ $post-> id }}">read post</a>
+                                        <p class="card-text">{{ $post->description }}</p>
+                                        <h5><a href="blog/{{ $post-> id }}" class="subtle-link text-muted">read post</a></h5>
                                     </div>
                                 </div>
                                 <div class="d-none d-sm-block col-sm-4 col-md-6">
@@ -222,7 +233,6 @@
                 }
             });
         }
-
 
 
     </script>

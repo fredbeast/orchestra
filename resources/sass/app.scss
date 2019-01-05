@@ -1,5 +1,30 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+/* montserrat-regular - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/montserrat-v12-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Montserrat Regular'), local('Montserrat-Regular'),
+  url('/fonts/montserrat-v12-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('/fonts/montserrat-v12-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+  url('/fonts/montserrat-v12-latin-regular.woff') format('woff'), /* Modern Browsers */
+  url('/fonts/montserrat-v12-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('/fonts/montserrat-v12-latin-regular.svg#Montserrat') format('svg'); /* Legacy iOS */
+}
+/* montserrat-800 - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/montserrat-v12-latin-800.eot'); /* IE9 Compat Modes */
+  src: local('Montserrat Bold'), local('Montserrat-Bold'),
+  url('/fonts/montserrat-v12-latin-800.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('/fonts/montserrat-v12-latin-800.woff2') format('woff2'), /* Super Modern Browsers */
+  url('/fonts/montserrat-v12-latin-800.woff') format('woff'), /* Modern Browsers */
+  url('/fonts/montserrat-v12-latin-800.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('/fonts/montserrat-v12-latin-800.svg#Montserrat') format('svg'); /* Legacy iOS */
+}
 // Variables
 @import 'variables';
 // Bootstrap
@@ -12,9 +37,10 @@ html {
 
 body {
   width: 100%;
-  margin-bottom:180px;
+  margin-bottom: 180px;
   padding-top: 50px;
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -27,6 +53,10 @@ body {
   color: white !important;
 }
 
+blockquote h1, blockquote h2, blockquote h3, blockquote h4, blockquote h5, blockquote h6 {
+  color: #afafaf;
+}
+
 h2 {
   font-weight: 700;
   font-size: 4.5em;
@@ -36,8 +66,8 @@ h2 {
 }
 
 h3 {
-  font-weight: 500;
-  font-size: 50px;
+  font-weight: 700;
+  font-size: 3em;
   @media #{$mobile-xs} {
     font-size: 22px;
   }
@@ -54,7 +84,7 @@ h3 {
 }
 
 .navbar-brand {
-  font-weight: 900;
+  font-weight: 700;
 }
 
 #o-paint {
@@ -126,7 +156,6 @@ h5 span {
 
 .btn-offerings {
   border-radius: 5px;
-  font-weight: 600;
   border-width: 2px;
 }
 
@@ -155,6 +184,7 @@ h5 span {
     opacity: 1;
   }
 }
+
 .scroll-wrapper {
   position: absolute;
   width: 100%;
@@ -170,17 +200,21 @@ h5 span {
     height: 40px;
   }
 }
+
 .scroll-wrapper a {
-  cursor:pointer;
+  cursor: pointer;
   text-decoration: none !important;
 }
+
 .scroll-wrapper a p {
   margin-bottom: 0;
-  cursor:pointer;
+  cursor: pointer;
 }
+
 .scroll-wrapper a i {
-  cursor:pointer;
+  cursor: pointer;
 }
+
 @keyframes bounceIn {
   0%, 30%, 50%, 65%, 100% {
     transform: translateY(0);
@@ -194,11 +228,9 @@ h5 span {
   }
 }
 
-
 .bounce {
   animation: bounceIn 4s infinite 3s;
 }
-
 
 .work-img-top {
   opacity: 1;
@@ -280,3 +312,12 @@ h5 span {
   background-color: #f9f9f9;
 }
 
+.subtle-link {
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 3px solid grey;
+  &:hover {
+    text-decoration: none !important;
+    opacity: 0.75;
+  }
+}
