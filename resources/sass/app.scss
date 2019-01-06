@@ -321,13 +321,25 @@ h5 span {
     opacity: 0.75;
   }
 }
-
+.blog-content {
+  word-break: break-word !important;
+}
 .blog-content p {
   font-size:1.8rem !important;
+  @media #{$mobile-xs} {
+    font-size: 1.2rem !important;
+  }
+
 }
 .blog-content h3 {
   font-size:3rem !important;
+  @media #{$mobile-xs} {
+    font-size: 1.8rem !important;
+  }
 }
 .blog-content h4 {
   font-size:2.5rem !important;
+  @media #{$mobile-xs} {
+    font-size: 1.8rem !important;
+  }
 }
