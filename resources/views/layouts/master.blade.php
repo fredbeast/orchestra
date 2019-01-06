@@ -10,6 +10,17 @@
     <meta name="author" content="Fred Parry"/>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131812166-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-131812166-1');
+    </script>
+
     <!-- Open Graph -->
     @yield('facebook_meta')
     <!-- Fonts -->

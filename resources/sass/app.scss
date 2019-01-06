@@ -54,7 +54,7 @@ body {
 }
 
 blockquote h1, blockquote h2, blockquote h3, blockquote h4, blockquote h5, blockquote h6 {
-  color: #afafaf;
+  color: #e0e0e0 !important;
 }
 
 h2 {
@@ -320,4 +320,14 @@ h5 span {
     text-decoration: none !important;
     opacity: 0.75;
   }
+}
+
+.blog-content p {
+  font-size:1.8rem !important;
+}
+.blog-content h3 {
+  font-size:3rem !important;
+}
+.blog-content h4 {
+  font-size:2.5rem !important;
 }
