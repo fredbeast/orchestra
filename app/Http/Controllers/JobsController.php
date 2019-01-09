@@ -129,7 +129,7 @@ class JobsController extends Controller
             }
         }
         // Update other content no matter what
-        $job->update(request(['title', 'types', 'url', 'content', 'tag']));
+        $job->update(request(['title', 'types', 'url', 'description', 'tag']));
         return back()->with('message','Everything updated successfully!');
     }
 

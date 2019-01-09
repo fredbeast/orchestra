@@ -105,7 +105,7 @@
                  style="margin-right: -150px; z-index: 4;">
                 <div class="my-5 p-5">
                     <h2>who are we?</h2>
-                    <p>a bunch of kids really </p>
+                    <p>modern designers following best </p>
                     <a href="/about" class="btn btn-outline-light">meet the team</a>
                 </div>
             </div>

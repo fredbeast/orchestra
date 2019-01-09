@@ -16,7 +16,7 @@
         <div class="row mt-5 mb-2 ">
             <div class="col-12">
                 <p><a href="/">Home</a> > <a href="{{ action('WorkController@index') }}">Jobs</a> > {{$job->title}}</p>
-                <img class="d-block w-100 mx-auto" src="{{ $job -> img_lg }}">
+                <img class="d-block w-100 mx-auto my-5 shadow-lg" src="{{ $job -> img_lg }}">
             </div>
         </div>
         <div class="row">
