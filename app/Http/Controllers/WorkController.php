@@ -11,7 +11,7 @@ class WorkController extends Controller
 {
     public function index()
     {
-        $jobs = DB::table('jobs')->paginate(12);
+        $jobs = DB::table('jobs')->orderBy('created_at', 'desc')->paginate(12);
         return view('jobs.index', compact('jobs'));
     }
     public function show($id)

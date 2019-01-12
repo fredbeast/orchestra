@@ -18,21 +18,21 @@
                 <p><a href="/">Home</a> > About</p>
                 <h2>about us</h2>
                 <hr>
-                <p>We welcome in businesses of any size and work on their brands, building them state-of-the-art websites and offering professional design services so that they can stand out from the crowd.</p>
-                <p>Services we offer:</p>
+                <p>we welcome in businesses of any size, build them state-of-the-art websites and offer professional design services so that they can stand out from the crowd.</p>
+                <p>services we offer:</p>
                 <ul>
                     <li>
-                        <b>Bespoke responsive websites</b> built with your brand always in mind
+                        <b>bespoke responsive websites</b> built with your brand always in mind
                     </li>
                     <li>
-                        <b>Professional graphic design</b> for anything from logos, brochures and posters
+                        <b>professional graphic design</b> for anything from logos, brochures and posters
                     </li>
                     <li>
-                        <b>High end photography</b> for products, brands and events
+                        <b>gigh-end photography</b> for products, brands and events
                     </li>
                 </ul>
-                <p>Started in November 2018, Orchestra we are a new and growing design agency with excellent reviews from past clients.</p>
-                <p>Meet the Team:</p>
+                <p>started in November 2018, we are a new and growing design agency with excellent reviews from past clients.</p>
+                <h3>the team:</h3>
             </div>
         </div>
         <div class="row">

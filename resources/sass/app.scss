@@ -12,6 +12,7 @@
   url('/fonts/montserrat-v12-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
   url('/fonts/montserrat-v12-latin-regular.svg#Montserrat') format('svg'); /* Legacy iOS */
 }
+
 /* montserrat-800 - latin */
 @font-face {
   font-family: 'Montserrat';
@@ -25,6 +26,7 @@
   url('/fonts/montserrat-v12-latin-800.ttf') format('truetype'), /* Safari, Android, iOS */
   url('/fonts/montserrat-v12-latin-800.svg#Montserrat') format('svg'); /* Legacy iOS */
 }
+
 // Variables
 @import 'variables';
 // Bootstrap
@@ -87,6 +89,15 @@ h3 {
   font-weight: 700;
 }
 
+#hero {
+  position: relative;
+  margin-top: -50px;
+  height: 85vh;
+  @media #{$mobile-lg}{
+    height: 60vh;
+  }
+}
+
 #o-paint {
   background-image: url("/img/o-paint.png");
   background-repeat: no-repeat;
@@ -95,6 +106,9 @@ h3 {
   margin-top: 150px;
   margin-bottom: 150px;
   overflow: hidden;
+  @media #{$tablet-rt} {
+    padding: 50px;
+  }
 }
 
 #o-yt-wrapper {
@@ -106,6 +120,16 @@ h3 {
   height: 300px;
   width: 300px;
   z-index: 2;
+  @media #{$mobile-xs} {
+    height: 200px;
+    width: 200px;
+    border-radius: 100px
+  }
+  @media #{$tablet-rt} {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px
+  }
 }
 
 #o-yt-middle {
@@ -120,6 +144,20 @@ h3 {
   -webkit-box-shadow: 0 0 41px 0 #0000002e;
   -moz-box-shadow: 0 0 41px 0 #0000002e;
   box-shadow: 0 0 41px 0 #0000002e;
+  @media #{$mobile-xs} {
+    width: 90px;
+    height: 90px;
+    top: 55px;
+    left: 55px;
+    border-radius: 45px;
+  }
+  @media #{$tablet-rt} {
+    height: 46px;
+    width: 46px;
+    top: 27px;
+    left: 27px;
+    border-radius: 23px;
+  }
 }
 
 #o-yt-wall {
@@ -134,12 +172,23 @@ h3 {
   width: 300px;
   height: 10px;
   margin-top: -80px;
+  @media #{$mobile-xs} {
+    width: 200px;
+    height: 6px;
+  }
 }
 
 .home-block {
   overflow: hidden;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+#welcomeBlock {
+  border-radius: 0.25rem !important;
+  @media #{$mobile-xs} {
+    border-radius: 0 !important;
+  }
 }
 
 .bg-black {
@@ -197,7 +246,11 @@ h5 span {
     opacity: 1;
   }
   @media #{$mobile-xs} {
-    height: 40px;
+    height: 20px;
+  }
+  @media #{$tablet-rt} {
+    font-size: 15px;
+    height: 10px;
   }
 }
 
@@ -255,6 +308,7 @@ h5 span {
   font-weight: 700;
   font-size: 30px;
   border: solid 5px;
+  overflow:hidden;
 }
 
 .card-work:hover .btn-card-work {
@@ -321,24 +375,28 @@ h5 span {
     opacity: 0.75;
   }
 }
+
 .blog-content {
   word-break: break-word !important;
 }
+
 .blog-content p {
-  font-size:1.8rem !important;
+  font-size: 1.8rem !important;
   @media #{$mobile-xs} {
     font-size: 1.2rem !important;
   }
 
 }
+
 .blog-content h3 {
-  font-size:3rem !important;
+  font-size: 3rem !important;
   @media #{$mobile-xs} {
     font-size: 1.8rem !important;
   }
 }
+
 .blog-content h4 {
-  font-size:2.5rem !important;
+  font-size: 2.5rem !important;
   @media #{$mobile-xs} {
     font-size: 1.8rem !important;
   }

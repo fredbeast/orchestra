@@ -43,7 +43,7 @@
                 <img src="{{ $post->image }}" class="w-25">
             </div>
             <div>
-                <button type="submit">Save</button>
+                <button class="btn btn-success mt-5" type="submit">Save</button>
             </div>
         </form>
         <form method="POST" action="/admin/posts/{{$post -> id}}">
@@ -51,7 +51,8 @@
             {{ method_field('DELETE') }}
 
             <div class="form-group">
-                <button type="submit" class="btn btn-danger">DELETE</button>
+
+                <button type="submit" class="btn btn-danger mt-5">DELETE</button>
             </div>
         </form>
         @if(session()->has('message'))

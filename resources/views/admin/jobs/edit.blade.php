@@ -41,15 +41,16 @@
                         <input type="file" name="imgLg">
                     </div>
                     <div>
-                        <button type="submit">Save</button>
+                        <button class="btn btn-success mt-5" type="submit">Save</button>
                     </div>
                 </form>
                 <form method="POST" action="/admin/jobs/{{$job -> id}}">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
-
                     <div class="form-group">
-                        <button type="submit" class="btn btn-danger">DELETE</button>
+                        <br>
+                        <br>
+                        <button type="submit" class="btn btn-danger mt-5">DELETE</button>
                     </div>
                 </form>
                 @if(session()->has('message'))
