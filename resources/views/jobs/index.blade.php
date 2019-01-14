@@ -23,7 +23,7 @@
         <div class="row">
             @foreach ($jobs as $job)
                 <div onclick="location.href='{{ action('WorkController@show', [$job -> id]) }}';"
-                     class="col-8 offset-2 col-sm-6 offset-sm-0 col-md-3 offset-md-0 my-4 my-md-0">
+                     class="col-8 offset-2 col-sm-6 offset-sm-0 col-md-3 offset-md-0 my-4">
                     <div class="card rounded shadow card-work" style="width: 100%">
                         <img class="card-img-top rounded work-img" src="{{$job->thumb_col}}" alt="Card image cap">
                         <img class="card-img-top rounded work-img-top" style="position: absolute; top:0; left:0"
