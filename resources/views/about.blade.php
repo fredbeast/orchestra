@@ -43,7 +43,16 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <h5>Sara Jolly</h5>
                 <p><b>Photographer</b> and artist. With particular expertise in product photography and event photography (weddings/balls).</p>
-
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <h5>Robyn Holder</h5>
+                <p><b>Designer</b> and artist. Brilliant graphic design skills, bit of a creative powerhouse. Lives on InDesign and dreams about Illustrator.</p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <h5>Phoebe Gash</h5>
+                <p><b>Web developer</b>. Full-stack with primary experience in React and Django, making sure everything runs efficiently behind the scenes.</p>
             </div>
         </div>
     </div>
