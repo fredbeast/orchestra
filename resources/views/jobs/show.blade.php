@@ -7,7 +7,7 @@
 @section('facebook_meta')
     <meta property="og:title" content="{{ $job -> title }} | by Orchestra">
     <meta property="og:description" content="{{ $job -> types }}">
-    <meta property="og:image" content="{{ $job -> image }}">
+    <meta property="og:image" content="{{ $job -> img_lg }}">
     <meta property="og:url" content="http://orchestradesign.co/jobs/{{ $job-> id }}">
 @endsection
 
