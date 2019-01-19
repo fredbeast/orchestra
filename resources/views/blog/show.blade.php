@@ -5,10 +5,11 @@
     <meta name="description" content="Award-winning design since 2018."/>
 @endsection
 @section('facebook_meta')
-    <meta property="og:title" content="{{ $post -> title }} | Orchestra">
+    <meta property="og:title" content="{{ $post -> title }}">
     <meta property="og:description" content="{{ $post -> description }}">
     <meta property="og:image" content="{{ $post -> image }}">
-    <meta property="og:url" content="http://orchestradesign.co/blog/{{$post->id}}">
+    <meta property="og:url" content="https://orchestradesign.co/blog/{{$post->id}}">
+    <meta property="og:type" content="article"/>
 @endsection
 
 @section('content')

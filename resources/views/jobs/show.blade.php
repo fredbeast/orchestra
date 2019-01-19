@@ -5,10 +5,10 @@
     <meta name="description" content="Award-winning design since 2018."/>
 @endsection
 @section('facebook_meta')
-    <meta property="og:title" content="{{ $job -> title }} | by Orchestra">
-    <meta property="og:description" content="{{ $job -> types }}">
+    <meta property="og:title" content="{{ $job -> title }} | Orchestra">
+    <meta property="og:description" content="client type - {{ $job -> types }}">
     <meta property="og:image" content="{{ $job -> img_lg }}">
-    <meta property="og:url" content="http://orchestradesign.co/jobs/{{ $job-> id }}">
+    <meta property="og:url" content="https://orchestradesign.co/jobs/{{ $job-> id }}">
 @endsection
 
 @section('content')

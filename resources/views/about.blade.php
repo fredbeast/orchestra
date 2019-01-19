@@ -8,7 +8,7 @@
     <meta property="og:title" content="About Orchestra">
     <meta property="og:description" content="Award-winning website and brand design since 2018.">
     <meta property="og:image" content="https://s3.eu-west-2.amazonaws.com/orchestra-portfolio/protected/orchestra.jpg">
-    <meta property="og:url" content="http://orchestradesign.co/about">
+    <meta property="og:url" content="https://orchestradesign.co/about">
 @endsection
 
 @section('content')
@@ -28,7 +28,7 @@
                         <b>professional graphic design</b> for anything from logos, brochures and posters
                     </li>
                     <li>
-                        <b>gigh-end photography</b> for products, brands and events
+                        <b>high-end photography</b> for products, brands and events
                     </li>
                 </ul>
                 <p>started in November 2018, we are a new and growing design agency with excellent reviews from past clients.</p>

@@ -8,7 +8,7 @@
     <meta property="og:title" content="Orchestra's Work">
     <meta property="og:description" content="Websites, logos and products designed by the big O.">
     <meta property="og:image" content="https://s3.eu-west-2.amazonaws.com/orchestra-portfolio/protected/orchestra.jpg">
-    <meta property="og:url" content="http://orchestradesign.co/jobs">
+    <meta property="og:url" content="https://orchestradesign.co/jobs">
 @endsection
 
 @section('content')

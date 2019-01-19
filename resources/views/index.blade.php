@@ -8,7 +8,7 @@
     <meta property="og:title" content="">
     <meta property="og:description" content="">
     <meta property="og:image" content="https://s3.eu-west-2.amazonaws.com/orchestra-portfolio/protected/orchestra.jpg">
-    <meta property="og:url" content="http://orchestradesign.co/">
+    <meta property="og:url" content="https://orchestradesign.co/">
 @endsection
 
 @section('content')
@@ -97,6 +97,11 @@
                 </div>
             @endforeach
         </div>
+        <div class="row my-4">
+            <div class="col-12">
+                <h5><a href="{{ action('WorkController@index') }}" class="subtle-link text-muted">view all</a></h5>
+            </div>
+        </div>
     </div>
 
     <div class="container-fluid px-0 h-100 home-block ">
@@ -168,6 +173,11 @@
                     @endif
                 @endif
             @endforeach
+        </div>
+        <div class="row my-4">
+            <div class="col-12">
+                <h5><a href="{{ action('BlogController@index') }}" class="subtle-link text-muted">view all</a></h5>
+            </div>
         </div>
     </div>
 

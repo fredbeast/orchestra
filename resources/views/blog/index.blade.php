@@ -7,7 +7,7 @@
     <meta property="og:title" content="Orchestra's Blog">
     <meta property="og:description" content="A few words from the team.">
     <meta property="og:image" content="https://s3.eu-west-2.amazonaws.com/orchestra-portfolio/protected/orchestra.jpg">
-    <meta property="og:url" content="http://orchestradesign.co/blog">
+    <meta property="og:url" content="https://orchestradesign.co/blog">
 @endsection
 @section('content')
     <div class="container my-sm-5">
