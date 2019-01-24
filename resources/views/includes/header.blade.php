@@ -23,6 +23,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/blog">Blog</a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" target="_blank" href="mailto:edwardfredparry@gmail.com?subject=Welcome to Orchestra&body=Write your query here.">Contact</a>
+            </li>
             <!--
             <li class="nav-item active">
                 <a class="nav-link" href="/">Contact</a>
