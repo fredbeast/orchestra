@@ -66,7 +66,7 @@
                     <a class="btn btn-outline-light btn-offerings mx-1 my-2" href="https://goo.gl/maps/YeAKvjrQpoG2"
                        target="_blank" role="button">edinburgh</a>
                     <a class="btn btn-outline-light btn-offerings mx-1 my-2"
-                       href="https://itsalmo.st/orchestras-london-hq-launch" target="_blank" role="button">london</a>
+                       href="https://itsalmo.st/orchestras-london-launch" target="_blank" role="button">london</a>
                     <a class="btn btn-outline-light btn-offerings mx-1 my-2"
                        href="https://www.facebook.com/orchestrastudios/" target="_blank" role="button">online</a>
                 </div>
