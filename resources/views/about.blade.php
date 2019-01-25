@@ -2,11 +2,11 @@
 
 @section('page_info')
     <title>About | Orchestra</title>
-    <meta name="description" content="Award-winning design since 2018."/>
+    <meta name="description" content="Elite London-based design studio specialising in websites, graphic design and brands. Creating high end content since 2018."/>
 @endsection
 @section('facebook_meta')
     <meta property="og:title" content="About Orchestra">
-    <meta property="og:description" content="Award-winning website and brand design since 2018.">
+    <meta property="og:description" content="Elite London-based design studio specialising in websites, graphic design and brands. Creating high end content since 2018.">
     <meta property="og:image" content="https://s3.eu-west-2.amazonaws.com/orchestra-portfolio/protected/orchestra.jpg">
     <meta property="og:url" content="https://orchestradesign.co/about">
 @endsection
