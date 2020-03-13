@@ -35,13 +35,12 @@
 @include('includes.footer')
 
 <!-- Main JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.js" integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/smooth-scroll.polyfills.min.js') }}"></script>
 <script>
     var scroll = new SmoothScroll('a[href*="#"]');
 </script>
-<script>
-
-</script>
+@stack('scripts')
 </body>
 </html>

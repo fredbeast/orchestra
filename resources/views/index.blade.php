@@ -12,7 +12,23 @@
 @endsection
 
 @section('content')
-
+    <div class="modal fade" id="modalRhubarb" tabindex="-1" role="dialog">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content text-center">
+                <div class="modal-header">
+                    <h5 class="modal-title">Some news...</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{asset('img/transition.jpg')}}" class="img-fluid w-50 mx-auto d-block mb-4 shadow rounded">
+                    <h5>New team, new branding and new clients.</h5>
+                    <p>Orchestra has grown into Rhubarb, for all future work please visit our new <a href="//rhubarb.ai" class="text-primary" target="_blank">website</a>. Exciting times!</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid" id="hero">
         <div class="row h-100">
             <div class='col-12 text-center my-auto' id="o-paint">
@@ -181,7 +197,12 @@
         </div>
     </div>
 
-    <script>
+    @push('scripts')
+        <script>
+        $(window).on('load',function(){
+            $('#modalRhubarb').modal('show');
+        });
+
         var tag = document.createElement('script');
         tag.src = "//www.youtube.com/player_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -244,7 +265,7 @@
             });
         }
 
-
-    </script>
+        </script>
+    @endpush
 @endsection
 
